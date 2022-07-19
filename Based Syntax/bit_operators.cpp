@@ -48,18 +48,29 @@ void bit()
 	// flip - Преобразует битовую маску в обратный код.  flip(place bit value), flip(void) инвертирует все биты
 	std::cout << "\nBitwise invert(function flip)" << std::endl;
 	std::bitset<8>(c) (std::string("1000101"));
-	std::cout << "Originall bitwise mask -> " << c << std::endl;          // c = 0d01000101
-	std::cout << "Invert first bit -> " << c.flip(0) << std::endl;        // c = 0d01000100
-	std::cout << "Invert all bit -> " << c.flip() << std::endl;           // c = 0d10111011
+	std::cout << "Originall bitwise mask = " << c.to_ulong() << " -> " << c << std::endl;          // c = 0d01000101
+	std::cout << "Invert first bit = " << c.flip(0).to_ulong() << " -> " << c << std::endl;        // c = 0d01000100
+	std::cout << "Invert all bit = " << c.flip().to_ulong() << " -> " << c << std::endl;           // c = 0d10111011
 	std::cout << std::endl;
 
 
 	std::cout << "\nBitwise invert(~)" << std::endl;
 	std::bitset<8>(d) (std::string("00011011"));
-	std::cout << "Originall bitwise mask -> " << d << std::endl;                        // d = 0d00011011
+	std::cout << "Originall bitwise mask = " << d.to_ulong() << " -> " << d << std::endl;                       // d = 0d00011011
 	d = ~d;
-	std::cout << "After invert: " << d << " -> " << std::bitset<8>(d) << std::endl;     // d = 0d11100100
+	std::cout << "After invert = " << d.to_ulong() << " -> " << d << std::endl;     // d = 0d11100100
 	std::cout << std::endl;
+	
+	
+	
+								// ДОБАВЛЕНИЕ БИТА
+	
+	// set(value place bit) - позволяет нам установить бит в 1 (она ничего не сделает, если бит уже равен 1)
+	std::cout << "Bitwise add if the place that replacing is 0" << std::endl;
+	std::bitset<8>(e) (std::string("01010101"));
+	std::cout << "Originall bitwise mask = " << e.to_ulong() << " -> " << e << std::endl;
+	e.set(1);
+	std::cout << "After add = " << e.to_ulong() << " -> " << e << std::endl;
 	std::cout << std::endl;
 }
 
